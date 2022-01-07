@@ -3,7 +3,7 @@ class CreateProdutos < ActiveRecord::Migration[5.2]
     create_table :produtos do |t|
       t.string :nome
       t.string :codigo
-      t.enum :classificacao
+      t.integer :classificacao, default: 0
       t.text :descricao
 
       t.timestamps

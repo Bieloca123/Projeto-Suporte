@@ -1,4 +1,6 @@
 class ProdutosController < ApplicationController
+  http_basic_authenticate_with name: "admin", password: "admin", only: :destroy
+  
   def index
     @produtos = Produto.all
   end
@@ -42,6 +44,6 @@ class ProdutosController < ApplicationController
 
   private
     def produto_params
-      params.require(:produto).permit(:nome, :descricao, :classificacao)
+      params.require(:produto).permit(:nome, :descricao, :classificacao, :status)
     end
 end

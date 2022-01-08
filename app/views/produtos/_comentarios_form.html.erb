@@ -1,0 +1,17 @@
+<%= form_with model: [ @produto, @produto.comentarios.build ] do |form| %>
+  <p>
+    <%= form.label :Comentario %><br>
+    <%= form.text_field :comentario %><br>
+  </p>
+  <p>
+    <%= form.label :Curtir %><br>
+    <%= form.select :classificacao, Comentario.classificacaos.keys.to_a %>
+  </p>
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

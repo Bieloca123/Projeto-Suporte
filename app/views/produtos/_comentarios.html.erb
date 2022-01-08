@@ -1,0 +1,16 @@
+<% @produto.comentarios.each do |comentario| %>
+  <p>
+    <strong>Comentario:</strong>
+    <%= comentario.comentario %>
+  </p>
+
+  <p>
+    <strong>Como voce avalia este produto ?</strong>
+    <%= comentario.classificacao %>
+  </p>
+  <p>
+    <%= link_to 'Destruir comentário', [comentario.produto, comentario],
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>

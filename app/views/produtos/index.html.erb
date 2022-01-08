@@ -1,10 +1,14 @@
 <h1>Produtos</h1>
 
+Nossa loja ja contem <%= Produto.public_count %> produtos! 
+
 <ul>
   <% @produtos.each do |produto| %>
-    <li>
-      <%= link_to produto.nome, produto %>
-    </li>
+    <% unless produto.archived? %>
+      <li>
+       <%= link_to produto.nome, produto %>
+     </li>
+    <% end %>
   <% end %>
 </ul>
 

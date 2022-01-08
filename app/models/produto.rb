@@ -3,4 +3,8 @@ class Produto < ActiveRecord::Base
   validates :nome, presence: true
   validates :descricao, presence: true, length: { minimum: 10 }
   validates :classificacao, presence: true
+  
+  has_many :comentarios
+  validates :comentario, presence: true, length: { minimum: 1 } 
+  validates :classificacao, presence: true
 end

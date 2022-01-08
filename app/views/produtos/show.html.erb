@@ -1,3 +1,40 @@
 <h1><%= @produto.nome %></h1>
 
 <p><%= @produto.descricao %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_produto_path(@produto) %></li>
+  <li><%= link_to "Destroy", produto_path(@produto),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2>Comentario</h2>
+<% @produto.comentarios.each do |comentario| %>
+  <p>
+    <strong>Avaliacao:</strong>
+    <%= comentario.comentario %>
+  </p>
+
+  <p>
+    <strong>Comentario:</strong>
+    <%= comentario.classificacao %>
+  </p>
+<% end %>
+zz
+<h2>Como voce avalia esse produto?</h2>
+<%= form_with model: [ @produto, @produto.comentarios.build ] do |form| %>
+  <p>
+    <%= form.label :Comentario %><br>
+    <%= form.text_field :comentario %><br>
+  </p>
+  <p>
+    <%= form.label :Classificacao %><br>
+    <%= form.select :classificacao, Comentario.classificacaos.keys.to_a %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+

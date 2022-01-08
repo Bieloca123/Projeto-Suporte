@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "produtos#index"
 
-  resources :produtos
+  resources :produtos do
+    resources :comentarios
+  end
 end

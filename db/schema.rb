@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_144425) do
+ActiveRecord::Schema.define(version: 2022_01_08_195811) do
+
+  create_table "comentarios", force: :cascade do |t|
+    t.text "comentario"
+    t.integer "classificacao"
+    t.integer "produto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_comentarios_on_produto_id"
+  end
 
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.string "codigo"
-    t.integer "classificacao"
+    t.integer "classificacao", default: 0
     t.text "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -5,13 +5,8 @@ class Produto < ActiveRecord::Base
   validates :classificacao, presence: true
   
   has_many :comentarios, dependent: :destroy
-
   validates :comentario, presence: true, length: { minimum: 1 } 
-  validates :classificacao, presence: true
-
-  
-  validates :title, presence: true
-  validates :body, presence: true, length: { minimum: 10 }
+  validates :classificacao, presence: true 
   
   VALID_STATUSES = ['public', 'private', 'archived']
   

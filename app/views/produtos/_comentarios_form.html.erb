@@ -8,7 +8,7 @@
     <%= form.select :classificacao, Comentario.classificacaos.keys.to_a %>
   </p>
   <div>
-    <%= form.label :status %><br>
+    <%= form.label :Status %><br>
     <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
   </div>
   <p>

@@ -1,5 +1,6 @@
 <h1>Produtos</h1> 
 
+
 <ul>
   <% @produtos.each do |produto| %>
     <% unless produto.archived? %>
@@ -9,5 +10,6 @@
     <% end %>
   <% end %>
 </ul>
+
 
 <%= link_to "Novo Produto", new_produto_path %>

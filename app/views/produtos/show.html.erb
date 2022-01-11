@@ -3,13 +3,6 @@
 <p><%= @produto.descricao %></p>
 
 
-<ul>
-  <li><%= link_to "Edit", edit_produto_path(@produto) %></li>
-  <li><%= link_to "Destroy", produto_path(@produto), 
-                  method: :delete,
-                  data: { confirm: "Tem certeza, que deseja deletar esse produto?" } %></li>
-</ul>
-
 <h2>Comentario</h2>
 <%= render "comentarios" %>
 

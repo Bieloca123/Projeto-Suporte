@@ -1,3 +1,5 @@
+
+  
 class ProdutosController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "admin", only: :destroy
   
@@ -11,6 +13,9 @@ class ProdutosController < ApplicationController
   
   def new
     @produto = Produto.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -21,9 +26,13 @@ class ProdutosController < ApplicationController
     else
       render :new
     end
+    
   end
   def edit
     @produto = Produto.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
@@ -33,6 +42,9 @@ class ProdutosController < ApplicationController
       redirect_to @produto
     else
       render :edit
+    end
+    respond_to do |format|
+      format.js
     end
   end
   def destroy

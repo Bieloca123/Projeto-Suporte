@@ -1,8 +1,9 @@
-<%= form_with model: produto do |form| %>
+<%= form_with model: @produto do |form| %>
+  <%= params[:action].eql?("edit") ? "Editar " : "Novo Produto" %>
   <div>
     <%= form.label :nome %><br>
     <%= form.text_field :nome %><br>
-    <% produto.errors.full_messages_for(:nome).each do |message| %>
+    <% @produto.errors.full_messages_for(:nome).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -10,7 +11,7 @@
   <div>
     <%= form.label :Descricao %><br>
     <%= form.text_field :descricao %><br>
-    <% produto.errors.full_messages_for(:descricao).each do |message| %>
+    <% @produto.errors.full_messages_for(:descricao).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -18,7 +19,7 @@
   <div>
     <%= form.label :Classificacao %><br>
     <%= form.select :classificacao, Produto.classificacaos.keys.to_a %><br>
-    <% produto.errors.full_messages_for(:classificacao).each do |message| %>
+    <% @produto.errors.full_messages_for(:classificacao).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -33,3 +34,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

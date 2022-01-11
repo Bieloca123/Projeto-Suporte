@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_01_08_222825) do
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.string "codigo"
-    t.integer "classificacao", default: 0
+    t.integer "classificacao"
     t.text "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -11,6 +11,6 @@
   <p>
     <%= link_to 'Destruir comentário', [comentario.produto, comentario],
                 method: :delete,
-                data: { confirm: "Tem certeza, que deseja deletar esse produto?" } %>
+                data: { confirm: "Tem certeza, que deseja deletar esse produto?", class: "btn btn-danger" } %>
   </p>
 <% end %>

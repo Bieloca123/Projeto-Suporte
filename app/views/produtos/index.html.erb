@@ -7,24 +7,31 @@
         <% if produto.valid? %>
           <% unless produto.archived? %>
             <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%= link_to produto.nome, produto %></text></svg>
-  
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <%= link_to "Edit", edit_produto_path(produto), remote: true, class: 'btn btn-primary' %>
+              <div class="card shadow">
+                <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/26n79t82lmj989iAE" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/producthunt-iphone-apple-event-26n79t82lmj989iAE"></a></p> 
+                </svg>
+    
+                <div class="card-body">
+                  <p class="card-text">
+                  <%= link_to produto.nome, produto %>
+                  <br>
+                  <%= produto.descricao %>
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <%= link_to "Editar", edit_produto_path(produto), remote: true, class: 'btn btn-primary' %>
+                        <i class="bi bi-bag-check-fill"></i>
+                    </div>
+                    <small class="text-muted"></small>
                   </div>
-                  <small class="text-muted">9 mins</small>
                 </div>
               </div>
             </div>
-          </div>
           <% end %>
           <% end %>
       <% end %>
       </div>
+      <br>
       <%= link_to "Novo Produto", new_produto_path , remote: true, class: 'btn btn-block btn-lg btn-primary icon-plus' %>
     </div>
   </div>

@@ -1,16 +1,17 @@
 <%= form_with model: [ @produto, @produto.comentarios.build ] do |form| %>
   <p>
     <%= form.label :Comentario %><br>
-    <%= form.text_field :comentario %><br>
+    <%= form.text_area :comentario, rows: 4, cols: 30, placeholder: 'Descreva detalhadamente seu Comentario' %><br>
   </p>
   <p>
     <%= form.label :Curtir %><br>
-    <%= form.select :classificacao, Comentario.classificacaos.keys.to_a %>
+    <%= form.select :classificacao, Comentario.classificacaos.keys.to_a, {}, class: "form-control" %>
   </p>
   <div>
     <%= form.label :Status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    <%= form.select :status, Produto.statuses.keys.to_a, {}, class: "form-control" %>
   </div>
+  <br>
   <p>
     <%= form.submit %>
   </p>

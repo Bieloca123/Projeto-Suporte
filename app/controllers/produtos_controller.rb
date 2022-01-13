@@ -43,9 +43,8 @@ class ProdutosController < ApplicationController
     else
       render :edit
     end
-    respond_to do |format|
-      format.js
-    end
+
+    
   end
   def destroy
     @produto = Produto.find(params[:id])

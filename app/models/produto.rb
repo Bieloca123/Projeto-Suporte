@@ -7,9 +7,7 @@ class Produto < ActiveRecord::Base
 
   has_many :comentarios, dependent: :destroy
 
-  VALID_STATUSES = ['public', 'private', 'archived']
-  
-  validates :status, inclusion: { in: VALID_STATUSES }
+  enum status: {'Public' => 0, 'Private' => 1, 'Archived' => 2}
   
   def archived?
    status == 'archived'

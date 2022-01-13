@@ -1,5 +1,7 @@
 {
   "name": "Projeto-Suporte",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-icons": "^1.7.2"
+  }
 }

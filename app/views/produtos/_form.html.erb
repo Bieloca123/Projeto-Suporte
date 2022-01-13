@@ -1,13 +1,11 @@
 <%= form_with model: @produto do |form| %>
-<div class='row'>
-<div class='col-md-12'>
-  <div class='portlet-body'>
-      <h1>Editar Produto</h1>
-      <%= params[:action].eql?("edit") ? "Editar " : "Novo Produto" %>
-
+  <%= params[:action].eql?("edit") ? "" : "Novo Produto" %>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class='portlet-body'>
         <div class='form-group-sm margin-b-lg'>
           <%= form.label :nome %><br>
-          <%= form.text_field :nome %><br>
+          <%= form.text_field :nome, class: 'form-control' %><br>
           <% @produto.errors.full_messages_for(:nome).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -15,30 +13,30 @@
 
         <div class='form-group-sm margin-b-lg'>
           <%= form.label :Descricao %><br>
-          <%= form.text_field :descricao %><br>
+          <%= form.text_area :descricao,class: 'form-control', rows: 4, placeholder: 'Descreva detalhadamente seu Produto'  %><br>
           <% @produto.errors.full_messages_for(:descricao).each do |message| %>
             <div><%= message %></div>
           <% end %>
         </div>
         <div class='form-group-sm margin-b-lg'>
           <%= form.label :Classificacao %><br>
-          <%= form.select :classificacao, Produto.classificacaos.keys.to_a %><br>
+          <%= form.select :classificacao, Produto.classificacaos.keys.to_a, {}, class:'form-control' %><br>
           <% @produto.errors.full_messages_for(:classificacao).each do |message| %>
             <div><%= message %></div>
           <% end %>
-        </div>
-        <div class='form-group-sm margin-b-lg'>
           <%= form.label  :Status %><br>
-          <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %> 
+          <%= form.select :status,  Produto.statuses.keys.to_a, {}, class: "form-control" %> 
         </div>
-      <br>
-      <div class="btn-group">
-        <%= form.submit "Salvar", class:"btn btn-success"%>
-        <%= link_to "Destroy", produto_path(@produto), 
-                          method: :delete,
-                          data: { confirm: "Tem certeza, que deseja deletar esse produto?"  }, class:"btn btn-danger" %>
-
-      </div>
-    <% end %>
+        <br>
+        <div class="modal-footer">
+          <div class="btn-group">
+          <%= form.submit "Salvar", class:"btn btn-success"%>
+          <%= link_to "Apagar", new_produto_path(@produto), 
+                           method: :delete,
+                           data: { confirm: "Tem certeza, que deseja deletar esse produto?"  }, class:"btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>  
+    </div>
   </div>
 </div>

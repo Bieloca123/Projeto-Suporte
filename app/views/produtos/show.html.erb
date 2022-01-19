@@ -2,14 +2,14 @@
 <div class="container">
   <h1><%= @produto.nome %></h1>
   <p><%= @produto.descricao %></p>
-  <%= @produto.classificacao %>
+  <%= @produto.classificacao %> 
 </div>
 <section>
   <div class="container">
     <div class="row">
         <div class="col-sm-5 col-md-6 col-12 pb-4">
             <h2>Comentario</h2>
-            <%= render "comentarios" %>        
+            <%= render "comentarios" %>      
         </div>
         <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
             <form id="algin-form">
@@ -22,15 +22,3 @@
     </div>
   </div>
 </section>
-
-<h1><%= @produto.nome %></h1>
-
-<p><%= @produto.descricao %></p>
-
-
-<h2>Comentario</h2>
-<%= render "comentarios" %>
-
-<h2>Como voce avalia esse produto?</h2>
-<%= render "comentarios_form" %>
-

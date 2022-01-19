@@ -1,10 +1,9 @@
-
-  
 class ProdutosController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "admin", only: :destroy
   
+
   def index
-    @produtos = Produto.all
+    @q = Produto.ransack(params[:q])
+    @produto = @q.result(distinct: true)
   end
 
   def show

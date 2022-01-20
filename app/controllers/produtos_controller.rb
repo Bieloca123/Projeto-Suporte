@@ -1,9 +1,11 @@
 class ProdutosController < ApplicationController
   
-
   def index
-    @q = Produto.ransack(params[:q])
-    @produto = @q.result(distinct: true)
+      @q = Produto.ransack(params[:q])
+      @produto = @q.result(distinct: true)
+    respond_to do |format|
+      format.html 
+    end
   end
 
   def show
@@ -21,12 +23,16 @@ class ProdutosController < ApplicationController
     @produto = Produto.new(produto_params)
 
     if @produto.save
-      redirect_to @produto, notice: 'Produto foi Criado com Sucesso'
+      redirect_to @produto
+        respond_to do |format|
+          format.html 
+          format.json 
+        end
     else
       render :new
     end
-    
   end
+
   def edit
     @produto = Produto.find(params[:id])
     respond_to do |format|

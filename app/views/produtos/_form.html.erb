@@ -31,9 +31,11 @@
         <div class="modal-footer">
           <div class="btn-group">
           <%= form.submit "Salvar", class:"btn btn-success"%>
-          <%= link_to "Apagar", new_produto_path(@produto), 
-                           method: :delete,
-                           data: { confirm: "Tem certeza, que deseja deletar esse produto?"  }, class:"btn btn-danger" %>
+          <% if params[:action].eql?("edit") %>
+            <%= link_to "Apagar", new_produto_path(@produto), 
+                            method: :delete,
+                            data: { confirm: "Tem certeza, que deseja deletar esse produto?" }, class:"btn btn-danger" %>
+            <% end %>
           <% end %>
         </div>
       </div>  

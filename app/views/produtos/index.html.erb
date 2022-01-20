@@ -1,23 +1,10 @@
 
 <div class="album py-5 bg-light">
   <div class="container">
-    <%= search_form_for @q do |form| %>
-      <div class='row'>
-        <%= form.label :Produto %>
-        <%= form.search_field :nome_cont, class:"form-group" %>
-        </br>
-        <%= form.label :Descricao %>
-        <%= form.search_field :descricao_cont, class:"form-group"%>
-        </br>
-        <%= form.label :Classificacao %>
-        <%= form.search_field :classificacao_cont, class:"form-group"%>
-      </div>
-      <%= form.submit %>
-    <% end %>
 
    
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <% @produto.each do |produto| %>
+       <% @produto.each do |produto| %>
             <div class="col">
               <div class="card shadow">
                 <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/26n79t82lmj989iAE" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/producthunt-iphone-apple-event-26n79t82lmj989iAE"></a></p> 
@@ -38,8 +25,7 @@
                 </div>
               </div>
             </div>
-          <% end %>
-          <% end %>
+      <% end %>
       </div>
       <br>
       <%= link_to "Novo Produto", new_produto_path , remote: true, class: 'btn btn-block btn-lg btn-primary icon-plus' %>
